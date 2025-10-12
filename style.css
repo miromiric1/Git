@@ -1,0 +1,792 @@
+/* =========================================================
+   🌙 LIGHT / DARK THEME VARIABLES
+   ========================================================= */
+:root {
+  /* 🌞 LIGHT THEME COLORS */
+  --bg: #f2ede7;
+  --text: #3a3a3a;
+  --accent: #b85c44;
+  --header-bg: #f5efe8;
+  --footer-bg: #f5efe8;
+  --overlay-bg: rgba(242, 237, 231, 0.9);
+  --border: rgba(180, 140, 120, 0.7);
+  --header-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  --footer-shadow: 0 -2px 6px rgba(0,0,0,0.08);
+
+  /* 🎨 SKILL BUBBLES */
+  --skill-bg: var(--header-bg);
+  --skill-text: var(--text);
+  --skill-hover-bg: var(--header-bg);
+  --skill-hover-text: var(--accent);
+  --skill-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  --skill-hover-shadow: 0 6px 18px rgba(0,0,0,0.15);
+
+  /* 🎨 PORTFOLIO BUTTON */
+  --btn-bg: var(--header-bg);
+  --btn-text: var(--accent);
+  --btn-border: var(--border);
+  --btn-hover-bg: var(--accent);
+  --btn-hover-text: #fff;
+  --btn-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  --btn-hover-shadow: 0 6px 20px rgba(0,0,0,0.15);
+
+  /* 🎨 LOGO */
+  --logo-fill: var(--accent);
+  --logo-stroke: var(--text);
+}
+
+
+
+html.dark {
+  --bg: #2b2c38;
+  --text: #e5e5e5;
+  --accent: #9a6ee0;
+  --header-bg: #22232d;
+  --footer-bg: #22232d;
+  --overlay-bg: rgba(255, 255, 255, 0.2);
+  --border: rgba(255, 255, 255, 0.1);
+  --header-shadow: 0 4px 10px rgba(0,0,0,0.5);
+  --footer-shadow: 0 -2px 4px rgba(0,0,0,0.5);
+
+  --skill-bg: #2b2c38;
+  --skill-text: #e5e5e5;
+  --skill-hover-bg: #333449;
+  --skill-hover-text: #9a6ee0;
+  --skill-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  --skill-hover-shadow: 0 6px 18px rgba(0,0,0,0.3);
+
+  --btn-bg: #2b2c38;
+  --btn-text: #9a6ee0;
+  --btn-border: rgba(255, 255, 255, 0.1);
+  --btn-hover-bg: #9a6ee0;
+  --btn-hover-text: #22232d;
+  --btn-shadow: 0 6px 18px rgba(0,0,0,0.2);
+  --btn-hover-shadow: 0 6px 20px rgba(0,0,0,0.3);
+
+  --logo-fill: #9a6ee0;
+  --logo-stroke: #e5e5e5;
+}
+
+
+
+/* =========================================================
+   💤 PRELOAD (ukloni tranzicije dok se tema postavlja)
+   ========================================================= */
+html.preload * {
+  transition: none !important;
+}
+
+/* =========================================================
+   🧭 GLOBAL STYLES
+   ========================================================= */
+html, body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+main {
+  flex: 1 0 auto;
+  padding-top: 10px;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-bottom: 4rem; /* ostaje razmak za footer */
+}
+
+/* =========================================================
+   🧱 HEADER
+   ========================================================= */
+header {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  background: var(--header-bg);
+  box-shadow: var(--header-shadow);
+  z-index: 50;
+}
+
+header .header-inner {
+  display: flex;
+  justify-content: space-between; /* logo lijevo, nav desno */
+  align-items: center;            /* vertikalno centrirano */
+  padding-left: 1rem;
+  padding-right: 1rem;
+  margin: 0 auto;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.logo-container .site-logo svg {
+  color: var(--logo-color);
+  width: auto;
+  height: 60px;
+  display: block;
+  transform: scale(1, -1);
+}
+
+.logo-container .site-logo svg path {
+  fill: var(--logo-fill);
+  stroke: var(--logo-stroke);
+  transition: fill 0.3s ease, stroke 0.3s ease;
+}
+
+.logo-text {
+  font-family: "Tangerine", cursive;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 2.5rem;
+  color: var(--text);
+  position: relative;
+  top: 3px;
+}
+
+/* =========================================================
+   📜 NAVIGATION
+   ========================================================= */
+nav {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+nav ul {
+  display: flex;
+  gap: 1.2rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav a {
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.25rem 0;
+  position: relative;
+  transition: color 0.25s ease;
+}
+
+nav a:hover {
+  color: var(--accent);
+}
+
+nav a::after {
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  width: 0;
+  height: 3px;
+  background-color: var(--accent);
+  border-radius: 2px;
+  transition: all 0.25s ease;
+}
+
+nav a:hover::after,
+nav a.active::after {
+  left: 0;
+  width: 100%;
+}
+
+/* =========================================================
+   🌗 THEME TOGGLE
+   ========================================================= */
+.theme-toggle {
+  margin-left: 0.75rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text);
+  transition: background 0.25s ease;
+}
+
+.theme-toggle:hover {
+  background: var(--overlay-bg);
+}
+
+.theme-toggle .icon {
+  width: 18px;
+  height: 18px;
+  position: absolute;
+  stroke: currentColor;
+  stroke-width: 1.6;
+  fill: none;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+html.light .theme-toggle .sun { transform: rotate(0deg); opacity: 1; }
+html.light .theme-toggle .moon { transform: rotate(-90deg); opacity: 0; }
+
+html.dark .theme-toggle .sun { transform: rotate(90deg); opacity: 0; stroke: var(--text); }
+html.dark .theme-toggle .moon { transform: rotate(0deg); opacity: 1; stroke: var(--text); }
+
+/* =========================================================
+   🖼️ GRID GALLERY
+   ========================================================= */
+.grid {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  gap: 10px;
+  grid-auto-rows: 400px;
+}
+
+.grid-item {
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  display: flex;
+  align-items: flex-end;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.grid-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.2,0.8,0.2,1);
+}
+
+.grid-item:hover img {
+  transform: scale(1.06);
+}
+
+.overlay {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 0.9rem;
+  text-align: center;
+  color: #fff;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.6);
+  background: var(--overlay-bg);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.grid-item:hover .overlay {
+  opacity: 1;
+}
+
+.grid-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+}
+
+/* =========================================================
+   💡 LIGHTBOX
+   ========================================================= */
+.lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(4px);
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+
+.lightbox[aria-hidden="false"] {
+  display: flex;
+}
+
+.lightbox-img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 10px;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.6);
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.lightbox .close {
+  position: absolute;
+  top: 20px;
+  right: 28px;
+  font-size: 36px;
+  color: #fff;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  line-height: 1;
+}
+
+/* =========================================================
+   🦶 FOOTER
+   ========================================================= */
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start; /* paragraf ispod copyrighta */
+  padding-left: 1rem ;
+  padding-right: 1rem;
+  background: var(--footer-bg);
+  box-shadow: var(--footer-shadow);;
+  flex-wrap: wrap; /* za mobile */
+}
+
+.footer-left {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.footer-left span,
+.footer-left p {
+  margin: 0;
+  font-size: 0.75rem;
+  line-height: 1.3;
+  color: var(--text);
+}
+
+.footer-left p {
+  opacity: 0.5;
+  font-size: 0.65rem;
+}
+
+.footer .social-links {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.footer .social-links a {
+  display: inline-block;
+}
+
+.social svg {
+  width: 28px;
+  height: 28px;
+  fill: var(--text);
+  transition: transform 0.2s ease, fill 0.2s ease;
+}
+
+.social:hover svg {
+  transform: scale(1.08);
+}
+
+.social.facebook:hover svg { fill: #1877f2; }
+.social.instagram:hover svg { fill: #e1306c; }
+.social.linkedin:hover svg { fill: #0077b5; }
+.social.behance:hover svg { fill: #1769ff; }
+
+/* =========================================================
+   BACK BUTTON
+   ========================================================= */
+
+.back-button {
+  position: fixed;
+  top: 90px; /* pomaknuto ispod headera */
+  left: 25px;
+  z-index: 900;
+  background: var(--bg);
+  color: var(--text);
+  border: 1px solid var(--border);
+  opacity: 0.7;
+  padding: 6px 14px;
+  border-radius: 40px;
+  font-size: 0.8rem;
+  text-decoration: none;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+  backdrop-filter: blur(6px);
+}
+
+.back-button:hover {
+  opacity: 1;
+  transform: translateY(-1px);
+  background: var(--accent);
+  color: #fff;
+}
+
+/* =========================================================
+   📱 RESPONSIVE
+   ========================================================= */
+@media (max-width: 768px) {
+  header {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  nav ul {
+    gap: 0.9rem;
+  }
+  .grid {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 8px;
+    grid-auto-rows: 150px;
+  }
+  .grid-item {
+    height: 100%;
+  }
+  .overlay {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .footer {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.5rem;
+  }
+  .footer-left {
+    align-items: center;
+  }
+}
+
+@media (max-width: 480px) {
+  header {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
+    text-align: center;
+  }
+
+  nav a {
+    font-size: 0.9rem;
+  }
+  .grid {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 6px;
+    grid-auto-rows: 120px;
+  }
+
+  .grid-item img {
+    object-fit: cover;
+  }
+
+  .overlay {
+    font-size: 0.8rem;
+    padding: 0.6rem;
+  }
+  
+  .footer-left span,
+  .footer-left p {
+    font-size: 0.65rem;
+  }
+
+  .social-links {
+    gap: 6px;
+    justify-content: center;
+  }
+}
+
+
+/* =========================================================
+   🪶 ABOUT PAGE
+   ========================================================= */
+.about {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  padding: 2rem 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.about .intro {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.about .portrait {
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid var(--accent);
+  transition: transform 0.3s ease;
+}
+
+.about .portrait:hover {
+  transform: scale(1.05);
+}
+
+.about .intro-text h1 {
+  font-family: "Tangerine", cursive;
+  font-size: 3rem;
+  margin: 0 0 0.5rem 0;
+  color: var(--accent);
+}
+
+.about .intro-text p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: var(--text);
+  max-width: 700px;
+}
+
+.about .skills {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.about .skills h2 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  color: var(--accent);
+}
+
+.about .skills ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 0.75rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.about .skills li {
+  background: var(--skill-bg);
+  color: var(--skill-text);
+  padding: 0.5rem 0.75rem;
+  border-radius: 12px;
+  text-align: center;
+  font-weight: 500;
+  box-shadow: var(--skill-shadow);
+  transition: background 0.25s ease, color 0.25s ease, box-shadow 0.25s ease;
+  cursor: default;
+}
+
+.about .skills li:hover {
+  background: var(--skill-hover-bg);
+  color: var(--skill-hover-text);
+  box-shadow: var(--skill-hover-shadow);
+}
+
+.about .experience h2 {
+  font-size: 2rem;
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+}
+
+.about .experience p {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--text);
+}
+
+.about .portfolio-link {
+  text-align: center;
+}
+
+.about .portfolio-link h2 {
+  font-size: 2rem;
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+}
+
+.about .portfolio-link p {
+  font-size: 1rem;
+  color: var(--text);
+  margin-bottom: 1rem;
+}
+
+.about .portfolio-link .btn {
+  background: var(--btn-bg);
+  color: var(--btn-text);
+  border: 1px solid var(--btn-border);
+  padding: 0.6rem 1.2rem;
+  border-radius: 16px;
+  font-weight: 500;
+  box-shadow: var(--btn-shadow);
+  transition: background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.about .portfolio-link .btn:hover {
+  background: var(--btn-hover-bg);
+  color: var(--btn-hover-text);
+  box-shadow: var(--btn-hover-shadow);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .about .intro {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .about .intro-text h1 {
+    font-size: 2.5rem;
+  }
+
+  .about .skills ul {
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  }
+}
+
+/* =========================================================
+   📨 CONTACT PAGE
+   ========================================================= */
+  .contact-hero {
+    text-align: center;
+    margin: 2.5rem 0 3rem 0;
+  }
+
+  .contact-hero h1 {
+    font-family: "Tangerine", cursive;
+    font-size: 3rem;
+    color: var(--accent);
+  }
+
+  .contact-hero p {
+    font-size: 1.1rem;
+    color: var(--text);
+    max-width: 700px;
+    margin: 0.5rem auto 0 auto;
+  }
+
+  .contact-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+    padding: 2rem 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .contact-cards .card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--header-bg);
+    padding: 1.5rem;
+    border-radius: 16px;
+    text-align: center;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+    cursor: pointer;
+  }
+
+  .contact-cards .card h3 {
+    margin: 0;
+    font-size: 1.1rem;
+    color: var(--accent);
+  }
+
+  .contact-cards .card a {
+    text-decoration: none;
+    color: var(--text);
+    font-size: 0.95rem;
+    word-break: break-all;
+  }
+
+  .contact-cards .card .icon {
+    width: 40px;
+    height: 40px;
+    color: var(--accent);
+    transition: color 0.25s ease, transform 0.25s ease;
+  }
+
+  .contact-cards .card:hover .icon {
+    transform: scale(1.1);
+  }
+  /* hover boje za ikone i tekst */
+  .card.email:hover .icon path,
+  .card.email:hover h3,
+  .card.email:hover a {
+    fill: #ff9800; /* ikona */
+    color: #ff9800; /* tekst */
+  }
+
+  .card.instagram:hover .icon path,
+  .card.instagram:hover h3,
+  .card.instagram:hover a {
+    fill: #E1306C;
+    color: #E1306C;
+  }
+
+  .card.facebook:hover .icon path,
+  .card.facebook:hover h3,
+  .card.facebook:hover a {
+    fill: #1877F2;
+    color: #1877F2;
+  }
+
+  .card.linkedin:hover .icon path,
+  .card.linkedin:hover h3,
+  .card.linkedin:hover a {
+    fill: #0A66C2;
+    color: #0A66C2;
+  }
+
+  .card.behance:hover .icon path,
+  .card.behance:hover h3,
+  .card.behance:hover a {
+    fill: #1769FF;
+    color: #1769FF;
+  }
+
+  @media (max-width: 768px) {
+    .contact-hero h1 {
+      font-size: 2.5rem;
+    }
+
+    .contact-hero p {
+      font-size: 1rem;
+    }
+
+    .contact-cards {
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1rem;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .contact-cards {
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    }
+  }
+
+  @media (max-width: 480px) {
+  .contact-cards {
+    grid-template-columns: 1fr; /* jedna kartica po redu */
+    padding: 1rem;
+    gap: 0.75rem;
+  }
+
+  .contact-cards .card {
+    padding: 1rem;
+  }
+
+  .contact-hero h1 {
+    font-size: 2rem;
+  }
+
+  .contact-hero p {
+    font-size: 0.95rem;
+  }
+}
