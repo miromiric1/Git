@@ -168,10 +168,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const choice = localStorage.getItem("cookie-consent");
   if (choice) return;
 
-  // Dinamički odredi base path za GitHub Pages
-  const repoName = window.location.pathname.split("/")[1]; // ime repozitorija
-  const isRepo = window.location.hostname !== "localhost" && repoName; 
-  const basePath = isRepo ? `/${repoName}/` : "/";
+  // Dinamički odredi base path
+  const repoName = window.location.pathname.split("/")[1]; // "Git"
+  const basePath = repoName ? `/${repoName}/` : "/";
 
   fetch(`${basePath}cookie.html`)
     .then(res => {
@@ -207,3 +206,4 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function enableOptionalCookies() { console.log("✅ Optional cookies enabled"); }
 function disableOptionalCookies() { console.log("🚫 Optional cookies disabled"); }
+
