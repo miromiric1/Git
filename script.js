@@ -165,14 +165,12 @@ document.addEventListener("contextmenu", function(e) {
 
 /* ---------- COOKIE BANNER DYNAMIC ---------- */
 document.addEventListener("DOMContentLoaded", () => {
+  // Provjeri postoji li već cookie consent
   const choice = localStorage.getItem("cookie-consent");
   if (choice) return;
 
-  // Dinamički odredi base path
-  const repoName = window.location.pathname.split("/")[1]; // "Git"
-  const basePath = repoName ? `/${repoName}/` : "/";
-
-  fetch(`${basePath}cookie.html`)
+  // fetch cookie.html relativno od base href
+  fetch("cookie.html")
     .then(res => {
       if (!res.ok) throw new Error("❌ cookie.html nije pronađen");
       return res.text();
@@ -204,6 +202,6 @@ document.addEventListener("DOMContentLoaded", () => {
     .catch(err => console.error(err));
 });
 
+// Placeholder funkcije
 function enableOptionalCookies() { console.log("✅ Optional cookies enabled"); }
 function disableOptionalCookies() { console.log("🚫 Optional cookies disabled"); }
-
