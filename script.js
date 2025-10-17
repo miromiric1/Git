@@ -165,19 +165,26 @@ document.addEventListener("contextmenu", function(e) {
 
 /* ---------- COOKIE BANNER DYNAMIC ---------- */
 document.addEventListener("DOMContentLoaded", () => {
-  // Provjeri postoji li već cookie consent
   const choice = localStorage.getItem("cookie-consent");
-  if (choice) return; // Ako je već odlučeno, ne prikazuj banner
+  if (choice) return;
 
-  // Učitaj cookie.html
-  fetch("/cookie.html")
-    .then(res => res.text())
+  // Dinamički odredi base path za GitHub Pages
+  const repoName = window.location.pathname.split("/")[1]; // ime repozitorija
+  const isRepo = window.location.hostname !== "localhost" && repoName; 
+  const basePath = isRepo ? `/${repoName}/` : "/";
+
+  fetch(`${basePath}cookie.html`)
+    .then(res => {
+      if (!res.ok) throw new Error("❌ cookie.html nije pronađen");
+      return res.text();
+    })
     .then(html => {
       const wrapper = document.createElement("div");
       wrapper.innerHTML = html;
       document.body.appendChild(wrapper);
 
       const banner = document.getElementById("cookieBanner");
+      if (!banner) return;
       banner.style.display = "flex";
 
       const acceptBtn = document.getElementById("acceptAll");
@@ -187,25 +194,16 @@ document.addEventListener("DOMContentLoaded", () => {
       function setConsent(value) {
         localStorage.setItem("cookie-consent", value);
         banner.style.display = "none";
-
-        if (value === "all") {
-          enableOptionalCookies();
-        } else {
-          disableOptionalCookies();
-        }
+        if (value === "all") enableOptionalCookies();
+        else disableOptionalCookies();
       }
 
-      acceptBtn.addEventListener("click", () => setConsent("all"));
-      necessaryBtn.addEventListener("click", () => setConsent("necessary"));
-      declineBtn.addEventListener("click", () => setConsent("none"));
-    });
+      acceptBtn?.addEventListener("click", () => setConsent("all"));
+      necessaryBtn?.addEventListener("click", () => setConsent("necessary"));
+      declineBtn?.addEventListener("click", () => setConsent("none"));
+    })
+    .catch(err => console.error(err));
 });
 
-// Placeholder funkcije za opcionalne cookie-e
-function enableOptionalCookies() {
-  console.log("✅ Optional cookies enabled");
-}
-
-function disableOptionalCookies() {
-  console.log("🚫 Optional cookies disabled");
-}
+function enableOptionalCookies() { console.log("✅ Optional cookies enabled"); }
+function disableOptionalCookies() { console.log("🚫 Optional cookies disabled"); }
