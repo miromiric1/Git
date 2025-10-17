@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="hr" class="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Iva Dukic ~ illustrator</title>
+
+    <!-- ---------- Sprječavanje blica ---------- -->
+  <script>
+    (function() {
+      try {
+        const theme = localStorage.getItem('theme') === 'dark' ? 'dark' : 'light';
+        document.documentElement.className = theme;
+      } catch(e) {
+        document.documentElement.className = 'light';
+      }
+    })();
+  </script>
+  
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/favicon.png" sizes="180x180">
+</head>
+
+<body>
+  <header class="header">
+    <div class="logo">
+      <img src="logo.png" alt="Logo">
+    </div>
+
+    <!-- Hamburger toggle -->
+    <input type="checkbox" id="nav-toggle" class="nav-toggle">
+    <label for="nav-toggle" class="nav-toggle-label">
+      <span></span>
+    </label>
+
+    <nav class="navbar">
+      <ul>
+        <li><a href="index.html">Portfolio</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html" class="active">Contact</a></li>
+        <li class="theme-toggle">
+          <div id="theme-toggle">
+            <svg class="icon sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="5" fill="currentColor"/>
+              <line x1="12" y1="1" x2="12" y2="3" stroke="currentColor" stroke-width="2"/>
+              <line x1="12" y1="21" x2="12" y2="23" stroke="currentColor" stroke-width="2"/>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" stroke="currentColor" stroke-width="2"/>
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" stroke="currentColor" stroke-width="2"/>
+              <line x1="1" y1="12" x2="3" y2="12" stroke="currentColor" stroke-width="2"/>
+              <line x1="21" y1="12" x2="23" y2="12" stroke="currentColor" stroke-width="2"/>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" stroke="currentColor" stroke-width="2"/>
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" stroke="currentColor" stroke-width="2"/>
+            </svg>
+            <svg class="icon moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path fill="currentColor" d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>
+            </svg>
+          </div>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="contact">
+    <section class="contact-hero">
+        <h1>Contact Me</h1>
+        <p>If you’d like to get in touch, feel free to reach out via email or through my social media channels.</p>
+    </section>
+
+    <section class="contact-cards">
+      <a href="mailto:zmamorije@gmail.com" class="card email">
+        <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <path fill="currentColor" d="M20 4H4a2 2 0 0 0-2 2v12a2 
+        2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 
+        2 0 0 0-2-2zm0 2v.01L12 13 4 6.01V6h16zM4 
+        18V8l8 5 8-5v10H4z"/>
+        </svg>
+        <h3>Email</h3>
+        <p>zmamorije@gmail.com</p>
+      </a>
+      
+      <a href="https://www.instagram.com/zmamorije_by_iva_dukic/" target="_blank" class="card instagram"> 
+        <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path fill="currentColor" d="M7 2C4.24 2 2 4.24 2 7v10c0 2.76 2.24 
+          5 5 5h10c2.76 0 5-2.24 5-5V7c0-2.76-2.24-5-5-5H7zm10 
+          2c1.65 0 3 1.35 3 3v10c0 1.65-1.35 3-3 3H7c-1.65 
+          0-3-1.35-3-3V7c0-1.65 1.35-3 3-3h10zm-5 
+          3a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 
+          2a3 3 0 1 1 0 6 3 3 0 0 1 0-6zm4.8-2.9a1.1 
+          1.1 0 1 0 0 2.2 1.1 1.1 0 0 0 0-2.2z"/>
+        </svg>
+        <h3>Instagram</h3>
+        <p>@zmamorije_by_iva_dukic/</p>
+      </a>
+
+      <a href="https://www.facebook.com/zmamorije" target="_blank" class="card facebook">
+        <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M22 12a10 10 0 1 0-11.5 9.9v-7h-2v-3h2v-2.3c0-2 1.2-3.1 3-3.1.9 0 1.8.2 1.8.2v2h-1c-1 0-1.3.6-1.3 1.2V12h2.3l-.4 3h-1.9v7A10 10 0 0 0 22 12z" fill="currentColor"/>
+        </svg>
+        <h3>Facebook</h3>
+        <p>zmamorije</p>
+      </a>
+            
+      <a href="https://www.behance.net/IvaDukic" target="_blank" class="card behance">
+        <svg class="icon" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
+          <g transform="translate(1.4 1.4) scale(2.81)">
+            <path d="M 81.276 24.925 H 58.726 v -5.601 h 22.553 v 5.601 
+                    C 81.278 24.925 81.276 24.925 81.276 24.925 z 
+                    M 43.713 47.894 c 1.455 2.254 2.182 4.99 2.182 8.203 
+                    c 0 3.322 -0.82 6.303 -2.488 8.935 
+                    c -1.061 1.742 -2.378 3.214 -3.961 4.398 
+                    c -1.783 1.37 -3.893 2.31 -6.32 2.812 
+                    C 30.693 72.746 28.058 73 25.22 73 H 0 V 17 h 27.045 
+                    c 6.817 0.111 11.65 2.086 14.504 5.965 
+                    c 1.712 2.379 2.561 5.233 2.561 8.551 
+                    c 0 3.424 -0.859 6.163 -2.588 8.244 
+                    c -0.962 1.167 -2.383 2.228 -4.264 3.187 
+                    C 40.107 43.99 42.268 45.633 43.713 47.894 z 
+                    M 12.915 39.078 h 11.85 c 2.435 0 4.404 -0.463 5.92 -1.388 
+                    c 1.515 -0.924 2.271 -2.566 2.271 -4.924 
+                    c 0 -2.605 -1.001 -4.334 -3.008 -5.166 
+                    c -1.725 -0.578 -3.932 -0.876 -6.61 -0.876 
+                    H 12.915 V 39.078 z 
+                    M 34.097 55.297 c 0 -2.909 -1.189 -4.92 -3.562 -5.999 
+                    c -1.327 -0.613 -3.199 -0.927 -5.6 -0.949 
+                    h -12.02 v 14.924 h 11.834 c 2.431 0 4.313 -0.318 5.671 -0.982 
+                    C 32.869 61.07 34.097 58.747 34.097 55.297 z 
+                    M 89.643 46.187 c 0.272 1.832 0.396 4.49 0.346 7.965 
+                    H 60.783 c 0.161 4.031 1.553 6.85 4.192 8.464 
+                    c 1.592 1.012 3.522 1.506 5.781 1.506 
+                    c 2.383 0 4.325 -0.602 5.82 -1.841 
+                    c 0.815 -0.656 1.533 -1.583 2.154 -2.752 
+                    h 10.705 c -0.28 2.381 -1.569 4.796 -3.886 7.25 
+                    c -3.589 3.9 -8.622 5.856 -15.086 5.856 
+                    c -5.34 0 -10.046 -1.649 -14.131 -4.936 
+                    c -4.071 -3.299 -6.116 -8.648 -6.116 -16.069 
+                    c 0 -6.959 1.836 -12.285 5.519 -15.992 
+                    c 3.697 -3.714 8.469 -5.563 14.35 -5.563 
+                    c 3.486 0 6.629 0.623 9.432 1.876 
+                    c 2.795 1.254 5.105 3.228 6.924 5.94 
+                    C 88.091 40.279 89.149 43.041 89.643 46.187 z 
+                    M 79.107 47.232 c -0.196 -2.788 -1.127 -4.897 -2.803 -6.339 
+                    c -1.662 -1.446 -3.738 -2.172 -6.216 -2.172 
+                    c -2.696 0 -4.778 0.776 -6.258 2.301 
+                    c -1.489 1.522 -2.416 3.591 -2.796 6.21 
+                    L 79.107 47.232 L 79.107 47.232 z" 
+                  fill="currentColor"/>
+          </g>
+        </svg>
+        <h3>Behance</h3>
+        <p>IvaDukic</p>
+      </a>
+      
+      </section>
+  </main>
+
+  <footer class="footer">
+  <div class="footer-left">
+    <p class="footer-title">© 2025 Iva Dukić</p>
+    <p class="footer-note">NO AI TRAINING: Without in any way limiting the authors and publishers exclusive rights under copyright, any use of this publication to train generative artificial intelligence (AI) technologies is expressly prohibited.</p>
+  </div>
+    <div class="footer-right">
+      <a href="https://www.behance.net/IvaDukic" class="social behance" aria-label="Behance" title="Behance" target="_blank" rel="noopener noreferrer">
+        <svg fill="#000000" width="64px" height="64px" viewBox="0 0 24.00 24.00" xmlns="http://www.w3.org/2000/svg" transform="rotate(0)"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" stroke="#CCCCCC" stroke-width="0.384"></g><g id="SVGRepo_iconCarrier"><path d="M7.803 5.731c.589 0 1.119.051 1.605.155.483.103.895.273 1.243.508.343.235.611.547.804.939.187.387.28.871.28 1.443 0 .62-.14 1.138-.421 1.551-.283.414-.7.753-1.256 1.015.757.219 1.318.602 1.69 1.146.374.549.557 1.206.557 1.976 0 .625-.119 1.162-.358 1.613a3.11 3.11 0 0 1-.974 1.114 4.315 4.315 0 0 1-1.399.64 6.287 6.287 0 0 1-1.609.206H2V5.731h5.803zm-.351 4.972c.48 0 .878-.114 1.192-.345.312-.228.463-.604.463-1.119 0-.286-.051-.522-.151-.707a1.114 1.114 0 0 0-.417-.428 1.683 1.683 0 0 0-.597-.215 3.609 3.609 0 0 0-.697-.061H4.71v2.875h2.742zm.151 5.239c.267 0 .521-.023.76-.077.241-.052.455-.136.637-.261.182-.12.332-.283.44-.491.109-.206.162-.475.162-.798 0-.634-.179-1.085-.533-1.358-.355-.27-.831-.404-1.414-.404H4.71v3.39h2.893zm8.565-.041c.367.358.896.538 1.584.538.493 0 .919-.125 1.278-.373.354-.249.57-.515.653-.79h2.155c-.346 1.072-.871 1.838-1.589 2.299-.709.463-1.572.693-2.58.693-.702 0-1.334-.113-1.9-.337a4.033 4.033 0 0 1-1.439-.958 4.37 4.37 0 0 1-.905-1.485 5.433 5.433 0 0 1-.32-1.899c0-.666.111-1.289.329-1.864a4.376 4.376 0 0 1 .934-1.493c.405-.42.885-.751 1.444-.994a4.634 4.634 0 0 1 1.858-.362c.754 0 1.413.146 1.979.44a3.967 3.967 0 0 1 1.39 1.182c.363.493.622 1.058.783 1.691.161.632.217 1.292.171 1.983h-6.431c.001.704.238 1.371.606 1.729zm2.812-4.681c-.291-.322-.783-.496-1.385-.496-.391 0-.714.065-.974.199a1.97 1.97 0 0 0-.62.491 1.772 1.772 0 0 0-.328.628 2.82 2.82 0 0 0-.111.587h3.982c-.058-.624-.272-1.085-.564-1.409zm-3.918-4.663h4.989v1.215h-4.989z"></path></g></svg>
+      </a>
+      <a href="https://www.instagram.com/zmamorije_by_iva_dukic/" class="social instagram" aria-label="Instagram" title="Instagram" target="_blank" rel="noopener noreferrer">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7 2C4.2 2 2 4.2 2 7v10c0 2.8 2.2 5 5 5h10c2.8 0 5-2.2 5-5V7c0-2.8-2.2-5-5-5H7zm0 2h10c1.7 0 3 1.3 3 3v10c0 1.7-1.3 3-3 3H7c-1.7 0-3-1.3-3-3V7c0-1.7 1.3-3 3-3zm5 2.9A5.1 5.1 0 0 0 6.9 12 5.1 5.1 0 0 0 12 17.1 5.1 5.1 0 0 0 17.1 12 5.1 5.1 0 0 0 12 6.9zm0 2A3.1 3.1 0 0 1 15.1 12 3.1 3.1 0 0 1 12 15.1 3.1 3.1 0 0 1 8.9 12 3.1 3.1 0 0 1 12 8.9zm4.6-.9a.9.9 0 1 0 0-1.8.9.9 0 0 0 0 1.8z"/></svg>
+      </a>
+      <a href="https://www.facebook.com/zmamorije" class="social facebook" aria-label="Facebook" title="Facebook" target="_blank" rel="noopener noreferrer">
+        <svg fill="#000000" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="64px" height="64px" viewBox="0 0 97.75 97.75" xml:space="preserve" stroke="#000000" stroke-width="0.0009775"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <path d="M48.875,0C21.882,0,0,21.882,0,48.875S21.882,97.75,48.875,97.75S97.75,75.868,97.75,48.875S75.868,0,48.875,0z M67.521,24.89l-6.76,0.003c-5.301,0-6.326,2.519-6.326,6.215v8.15h12.641L67.07,52.023H54.436v32.758H41.251V52.023H30.229V39.258 h11.022v-9.414c0-10.925,6.675-16.875,16.42-16.875l9.851,0.015V24.89L67.521,24.89z"></path> </g> </g></svg>
+      </a>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

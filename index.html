@@ -1,124 +1,293 @@
-<!doctype html>
-<html lang="hr">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Iva Dukic — Portfolio</title>
+<!DOCTYPE html>
+<html lang="hr" class="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Iva Dukic ~ illustrator</title>
 
-  <!-- Tema prije CSS-a -->
-  <script>
-    (function () {
-      try {
-        const theme = localStorage.getItem('theme') || 'light';
-        document.documentElement.classList.add('preload', theme);
-      } catch (_) {}
-    })();
-  </script>
+    <!-- ---------- Sprječavanje blica ---------- -->
+    <script>
+      (function () {
+        try {
+          const theme =
+            localStorage.getItem("theme") === "dark" ? "dark" : "light";
+          document.documentElement.className = theme;
+        } catch (e) {
+          document.documentElement.className = "light";
+        }
+      })();
+    </script>
 
-  <link rel="stylesheet" href="style.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Tangerine:wght@400;700&display=swap" rel="stylesheet">
-</head>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/favicon.png" sizes="180x180">
+  </head>
 
-<body>
-  <header>
-    <div class="header-inner">
-      <div class="logo-container">
-        <div class="site-logo">
-          <svg viewBox="0 0 2810 2423" xmlns="http://www.w3.org/2000/svg">
-          <path d="M2810 2423 c-196 -199 -553 -666 -783 -1023 -59 -92 -65 -106 -51 -115 10 -5 41 -29 70 -52 l54 -43 77 93 c251 302 592 811 729 1091 60 121 67 156 32 156 -15 0 -57 -35 -128 -107z" fill="currentColor"/> 
-          <path d="M500 2094 c-14 -2 -67 -11 -117 -20 -54 -9 -93 -21 -94 -27 -1 -31 2 -1532 4 -1533 1 -2 31 5 67 14 97 24 434 24 550 -1 147 -32 336 -124 423 -205 l27 -26 0 749 0 750 -65 62 c-156 149 -373 230 -635 238 -74 2 -146 2 -160 -1z" fill="currentColor"/>
-          <path d="M1948 2065 c-99 -16 -240 -66 -324 -116 -32 -19 -87 -61 -121 -94 l-63 -61 0 -587 c0 -323 2 -587 5 -587 12 0 47 88 65 165 33 141 80 209 180 260 44 23 54 34 89 104 68 134 298 506 468 755 66 97 91 141 83 146 -18 11 -177 30 -241 29 -30 -1 -93 -7 -141 -14z" fill="currentColor"/>
-          <path d="M130 1853 c-40 -14 -40 -7 -40 -823 0 -629 3 -790 13 -804 12 -17 20 -16 132 19 198 60 331 78 525 72 131 -4 184 -10 261 -30 108 -28 215 -79 278 -131 73 -61 158 -62 257 -2 89 53 214 104 334 134 98 25 119 27 310 26 229 0 299 -11 506 -78 125 -41 139 -42 148 -20 3 9 6 372 6 809 0 864 4 809 -58 821 l-32 7 0 -758 0 -757 -22 5 c-13 3 -61 17 -108 32 -349 107 -771 53 -1106 -142 -102 -60 -135 -61 -195 -9 -56 48 -222 129 -319 155 -243 66 -520 66 -741 1 -36 -11 -74 -20 -83 -20 -15 0 -16 61 -16 750 0 708 -1 750 -17 749 -10 0 -25 -3 -33 -6z" fill="currentColor"/>
-          <path d="M2611 1685 c-144 -212 -301 -408 -510 -639 -112 -123 -116 -130 -123 -184 -11 -78 -43 -138 -109 -204 -93 -91 -253 -158 -376 -158 l-53 0 0 -110 c0 -60 3 -110 6 -110 3 0 47 26 97 57 174 107 329 167 515 198 144 24 401 17 520 -15 46 -12 85 -20 88 -17 2 2 3 287 2 633 l-3 629 -54 -80z" fill="currentColor"/>
-          <path d="M1877 1161 c-75 -116 -74 -106 -20 -145 27 -20 51 -36 55 -36 7 0 118 123 131 147 6 9 2 22 -10 35 -21 24 -88 68 -102 68 -6 0 -30 -31 -54 -69z" fill="currentColor"/>
-          <path d="M1724 966 c-64 -36 -99 -93 -124 -200 -13 -57 -33 -112 -50 -140 -16 -25 -26 -46 -21 -46 4 0 32 8 62 19 138 47 235 120 275 206 32 68 30 92 -10 130 -53 50 -85 58 -132 31z" fill="currentColor"/>
-          </svg>
-        </div>
-        <span class="logo-text">Iva Dukic</span>
+  <body>
+    <header class="header">
+      <div class="logo">
+        <img src="logo.png" alt="Logo" />
       </div>
-      <nav>
+
+      <!-- Hamburger toggle -->
+      <input type="checkbox" id="nav-toggle" class="nav-toggle" />
+      <label for="nav-toggle" class="nav-toggle-label">
+        <span></span>
+      </label>
+
+      <nav class="navbar">
         <ul>
-          <li><a href="index.html" class="active" aria-current="page">Home</a></li>
+          <li><a href="index.html" class="active">Portfolio</a></li>
           <li><a href="about.html">About</a></li>
           <li><a href="contact.html">Contact</a></li>
+          <li class="theme-toggle">
+            <div id="theme-toggle">
+              <svg
+                class="icon sun"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+              >
+                <circle cx="12" cy="12" r="5" fill="currentColor" />
+                <line
+                  x1="12"
+                  y1="1"
+                  x2="12"
+                  y2="3"
+                  stroke="currentColor"
+                  stroke-width="2"
+                />
+                <line
+                  x1="12"
+                  y1="21"
+                  x2="12"
+                  y2="23"
+                  stroke="currentColor"
+                  stroke-width="2"
+                />
+                <line
+                  x1="4.22"
+                  y1="4.22"
+                  x2="5.64"
+                  y2="5.64"
+                  stroke="currentColor"
+                  stroke-width="2"
+                />
+                <line
+                  x1="18.36"
+                  y1="18.36"
+                  x2="19.78"
+                  y2="19.78"
+                  stroke="currentColor"
+                  stroke-width="2"
+                />
+                <line
+                  x1="1"
+                  y1="12"
+                  x2="3"
+                  y2="12"
+                  stroke="currentColor"
+                  stroke-width="2"
+                />
+                <line
+                  x1="21"
+                  y1="12"
+                  x2="23"
+                  y2="12"
+                  stroke="currentColor"
+                  stroke-width="2"
+                />
+                <line
+                  x1="4.22"
+                  y1="19.78"
+                  x2="5.64"
+                  y2="18.36"
+                  stroke="currentColor"
+                  stroke-width="2"
+                />
+                <line
+                  x1="18.36"
+                  y1="5.64"
+                  x2="19.78"
+                  y2="4.22"
+                  stroke="currentColor"
+                  stroke-width="2"
+                />
+              </svg>
+              <svg
+                class="icon moon"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  fill="currentColor"
+                  d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"
+                />
+              </svg>
+            </div>
+          </li>
         </ul>
-
-        <button id="theme-toggle" class="theme-toggle" aria-pressed="false" aria-label="Promijeni temu">
-          <svg class="icon sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3v2m0 14v2m9-9h-2M5 12H3m15.364-6.364l-1.414 1.414M6.05 17.95l-1.414 1.414M18.364 18.364l-1.414-1.414M6.05 6.05L4.636 4.636M12 8a4 4 0 100 8 4 4 0 000-8z"/></svg>
-          <svg class="icon moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
-        </button>
       </nav>
-    </div>
-  </header>
+    </header>
 
-<main id="gallery" class="grid">
-  
-  <a href="projekt.html" class="grid-item">
-    <img src="img/slider1.jpg" alt="Project 1">
-    <div class="overlay">Project 1</div>
-  </a>
+    <main class="masonry">
+      <a href="/projects/doorstep.html"
+        ><img src="img/doorstep1 .jpg" alt="" loading="lazy"
+      /></a>
+      <a href="/projects/doorstep.html"
+        ><img src="img/doorstep2.jpg" alt="" loading="lazy"
+      /></a>
+      <a href="/projects/doorstep.html"
+        ><img src="img/doorstep3 .jpg" alt="" loading="lazy"
+      /></a>
+      <a href="/projects/friends.html"
+        ><img src="img/friends1.jpg" alt="" loading="lazy"
+      /></a>
+      <a href="/projects/friends.html"
+        ><img src="img/friends3.jpg" alt="" loading="lazy"
+      /></a>
+      <a href="/projects/friends.html"
+        ><img src="img/friends4.jpg" alt="" loading="lazy"
+      /></a>
+      <a href="/projects/friends.html"
+        ><img src="img/friends5.jpg" alt="" loading="lazy"
+      /></a>
+      <a href="#"><img src="img/ghost.jpg" alt="" loading="lazy" /></a>
+      <a href="#"><img src="img/house.jpg" alt="" loading="lazy" /></a>
+      <a href="/projects/kitty.html"
+        ><img src="img/kitty.jpg" alt="" loading="lazy"
+      /></a>
+      <a href="#"><img src="img/lion.jpg" alt="" loading="lazy" /></a>
+      <a href="#"><img src="img/lisica.jpg" alt="" loading="lazy" /></a>
+      <a href="#"><img src="img/mice.jpg" alt="" loading="lazy" /></a>
+      <a href="/projects/pumpkin.html"
+        ><img src="img/pumpkin3.jpg" alt="" loading="lazy"
+      /></a>
+      <a href="/projects/pumpkin.html"
+        ><img src="img/pumpkin5.jpg" alt="" loading="lazy"
+      /></a>
+      <a href="/projects/pumpkin.html"
+        ><img src="img/pumpkin7.jpg" alt="" loading="lazy"
+      /></a>
+      <a href="/projects/pumpkin.html"
+        ><img src="img/pumpkin8.jpg" alt="" loading="lazy"
+      /></a>
+      <a href="/img/school.jpg"
+        ><img src="img/school_thumb.jpg" alt="" loading="lazy"
+      /></a>
+      <a href="#"><img src="img/spot.jpg" alt="" loading="lazy" /></a>
+      <a href="#"><img src="img/town.jpg" alt="" loading="lazy" /></a>
+      <a href="/projects/wicked.html"
+        ><img src="img/wicked1.jpg" alt="" loading="lazy"
+      /></a>
+      <a href="/projects/wicked.html"
+        ><img src="img/wicked2.jpg" alt="" loading="lazy"
+      /></a>
+      <a href="/projects/wicked.html"
+        ><img src="img/wicked3.jpg" alt="" loading="lazy"
+      /></a>
+      <a href="#"><img src="img/winter.jpg" alt="" loading="lazy" /></a>
+      <a href="img/birthday.jpg"
+        ><img src="img/birthday_thumb.jpg" alt="" loading="lazy"
+      /></a>
+    </main>
 
-  <a href="#" class="grid-item slika">
-    <img src="img/slider2.jpg" alt="Project 2">
-    <div class="overlay">Project 2</div>
-  </a>
-
-  <a href="#" class="grid-item slika">
-    <img src="img/slider3.jpg" alt="Project 3">
-    <div class="overlay">Project 3</div>
-  </a>
-
-  <a href="#" class="grid-item slika">
-    <img src="img/slider4.jpg" alt="Project 4">
-    <div class="overlay">Project 4</div>
-  </a>
-
-  <a href="img/slider5.jpg" class="grid-item">
-    <img src="img/slider5.jpg" alt="Project 5">
-    <div class="overlay">Project 5</div>
-  </a>
-
-  <a href="img/slider6.jpg" class="grid-item">
-    <img src="img/slider6.jpg" alt="Project 6">
-    <div class="overlay">Project 6</div>
-  </a>
-</main>
-
-<!-- Lightbox -->
-<div id="lightbox" class="lightbox" aria-hidden="true" aria-label="Pregled slike">
-  <button class="close" aria-label="Zatvori">&times;</button>
-  <img class="lightbox-img" src="" alt="">
-</div>
-
-
-  <footer class="footer">
-    <div class="footer-left">
-      <span>© 2025 Iva Dukic</span>
-      <p>NO AI TRAINING: Without in any way limiting the authors and publishers exclusive rights under copyright, any use of this publication to train generative artificial intelligence (AI) technologies is expressly prohibited.</p>  
-    </div>
-    
-    <div class="social-links">
-          <a href="https://facebook.com" target="_blank" rel="noopener" class="social facebook" aria-label="Facebook">
-            <svg viewBox="0 0 24 24"><path d="M22 12a10 10 0 1 0-11.5 9.9v-7h-2v-3h2v-2.3c0-2 1.2-3.1 3-3.1.9 0 1.8.2 1.8.2v2h-1c-1 0-1.3.6-1.3 1.2V12h2.3l-.4 3h-1.9v7A10 10 0 0 0 22 12z"/></svg>
-          </a>
-          <a href="https://instagram.com" target="_blank" rel="noopener" class="social instagram" aria-label="Instagram">
-            <svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.584.012 4.85.07 1.17.054 1.96.24 2.42.403a4.92 4.92 0 0 1 1.77 1.03 4.92 4.92 0 0 1 1.03 1.77c.163.46.35 1.25.403 2.42.058 1.27.07 1.65.07 4.85s-.012 3.584-.07 4.85c-.054 1.17-.24 1.96-.403 2.42a4.92 4.92 0 0 1-1.03 1.77 4.92 4.92 0 0 1-1.77 1.03c-.46.163-1.25.35-2.42.403-1.27.058-1.65.07-4.85.07s-3.584-.012-4.85-.07c-1.17-.054-1.96-.24-2.42-.403a4.92 4.92 0 0 1-1.77-1.03 4.92 4.92 0 0 1-1.03-1.77c-.163-.46-.35-1.25-.403-2.42C2.212 15.584 2.2 15.2 2.2 12s.012-3.584.07-4.85c.054-1.17.24-1.96.403-2.42a4.92 4.92 0 0 1 1.03-1.77 4.92 4.92 0 0 1 1.77-1.03c.46-.163 1.25-.35 2.42-.403C8.416 2.212 8.8 2.2 12 2.2zm0 1.8c-3.15 0-3.523.012-4.76.069-1.06.048-1.64.22-2.03.365a3.12 3.12 0 0 0-1.13.736 3.12 3.12 0 0 0-.736 1.13c-.145.39-.317.97-.365 2.03-.057 1.237-.069 1.61-.069 4.76s.012 3.523.069 4.76c.048 1.06.22 1.64.365 2.03.17.42.4.78.736 1.13.35.35.71.567 1.13.736.39.145.97.317 2.03.365 1.237.057 1.61.069 4.76.069s3.523-.012 4.76-.069c1.06-.048 1.64-.22 2.03-.365a3.12 3.12 0 0 0 1.13-.736 3.12 3.12 0 0 0 .736-1.13c.145-.39.317-.97.365-2.03.057-1.237.069-1.61.069-4.76s-.012-3.523-.069-4.76c-.048-1.06-.22-1.64-.365-2.03a3.12 3.12 0 0 0-.736-1.13 3.12 3.12 0 0 0-1.13-.736c-.39-.145-.97-.317-2.03-.365C15.523 4.012 15.15 4 12 4zm0 3a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 1.8a3.2 3.2 0 1 0 0 6.4 3.2 3.2 0 0 0 0-6.4zm4.8-2.4a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4z"/></svg>
-          </a>
-          <a href="https://linkedin.com" target="_blank" rel="noopener" class="social linkedin" aria-label="LinkedIn">
-            <svg viewBox="0 0 24 24"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 8.9h4v12H3v-12zm7.5 0h3.8v1.6h.05c.53-1 1.83-2.05 3.77-2.05 4 0 4.74 2.62 4.74 6v6.45h-4v-5.7c0-1.36-.03-3.1-1.9-3.1-1.9 0-2.2 1.5-2.2 3v5.8h-4v-12z"/></svg>
-          </a>
-          <a class="social behance" href="#" target="_blank" aria-label="Behance">
-            <svg class="icon" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
-            <g transform="translate(1.406593 1.406593) scale(2.81 2.81)">
-            <path d="M81.276 24.925H58.726v-5.601h22.553v5.601C81.278 24.925 81.276 24.925 81.276 24.925z M43.713 47.894c1.455 2.254 2.182 4.99 2.182 8.203 0 3.322-.82 6.303-2.488 8.935-1.061 1.742-2.378 3.214-3.961 4.398-1.783 1.37-3.893 2.31-6.32 2.812C30.693 72.746 28.058 73 25.22 73H0V17h27.045c6.817.111 11.65 2.086 14.504 5.965 1.712 2.379 2.561 5.233 2.561 8.551 0 3.424-.859 6.163-2.588 8.244-.962 1.167-2.383 2.228-4.264 3.187C40.107 43.99 42.268 45.633 43.713 47.894z M12.915 39.078h11.85c2.435 0 4.404-.463 5.92-1.388 1.515-.924 2.271-2.566 2.271-4.924 0-2.605-1.001-4.334-3.008-5.166-1.725-.578-3.932-.876-6.61-.876H12.915V39.078z M34.097 55.297c0-2.909-1.189-4.92-3.562-5.999-1.327-.613-3.199-.927-5.6-.949h-12.02v14.924h11.834c2.431 0 4.313-.318 5.671-.982C32.869 61.07 34.097 58.747 34.097 55.297z M89.643 46.187c.272 1.832.396 4.49.346 7.965H60.783c.161 4.031 1.553 6.85 4.192 8.464 1.592 1.012 3.522 1.506 5.781 1.506 2.383 0 4.325-.602 5.82-1.841.815-.656 1.533-1.583 2.154-2.752h10.705c-.28 2.381-1.569 4.796-3.886 7.25-3.589 3.9-8.622 5.856-15.086 5.856-5.34 0-10.046-1.649-14.131-4.936-4.071-3.299-6.116-8.648-6.116-16.069 0-6.959 1.836-12.285 5.519-15.992 3.697-3.714 8.469-5.563 14.35-5.563 3.486 0 6.629.623 9.432 1.876 2.795 1.254 5.105 3.228 6.924 5.94C88.091 40.279 89.149 43.041 89.643 46.187z M79.107 47.232c-.196-2.788-1.127-4.897-2.803-6.339-1.662-1.446-3.738-2.172-6.216-2.172-2.696 0-4.778.776-6.258 2.301-1.489 1.522-2.416 3.591-2.796 6.21L79.107 47.232z"/>
+    <footer class="footer">
+      <div class="footer-left">
+        <p class="footer-title">© 2025 Iva Dukić</p>
+        <p class="footer-note">
+          NO AI TRAINING: Without in any way limiting the authors and publishers
+          exclusive rights under copyright, any use of this publication to train
+          generative artificial intelligence (AI) technologies is expressly
+          prohibited.
+        </p>
+      </div>
+      <div class="footer-right">
+        <a
+          href="https://www.behance.net/IvaDukic"
+          class="social behance"
+          aria-label="Behance"
+          title="Behance"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <svg
+            fill="#000000"
+            width="64px"
+            height="64px"
+            viewBox="0 0 24.00 24.00"
+            xmlns="http://www.w3.org/2000/svg"
+            transform="rotate(0)"
+          >
+            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g
+              id="SVGRepo_tracerCarrier"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke="#CCCCCC"
+              stroke-width="0.384"
+            ></g>
+            <g id="SVGRepo_iconCarrier">
+              <path
+                d="M7.803 5.731c.589 0 1.119.051 1.605.155.483.103.895.273 1.243.508.343.235.611.547.804.939.187.387.28.871.28 1.443 0 .62-.14 1.138-.421 1.551-.283.414-.7.753-1.256 1.015.757.219 1.318.602 1.69 1.146.374.549.557 1.206.557 1.976 0 .625-.119 1.162-.358 1.613a3.11 3.11 0 0 1-.974 1.114 4.315 4.315 0 0 1-1.399.64 6.287 6.287 0 0 1-1.609.206H2V5.731h5.803zm-.351 4.972c.48 0 .878-.114 1.192-.345.312-.228.463-.604.463-1.119 0-.286-.051-.522-.151-.707a1.114 1.114 0 0 0-.417-.428 1.683 1.683 0 0 0-.597-.215 3.609 3.609 0 0 0-.697-.061H4.71v2.875h2.742zm.151 5.239c.267 0 .521-.023.76-.077.241-.052.455-.136.637-.261.182-.12.332-.283.44-.491.109-.206.162-.475.162-.798 0-.634-.179-1.085-.533-1.358-.355-.27-.831-.404-1.414-.404H4.71v3.39h2.893zm8.565-.041c.367.358.896.538 1.584.538.493 0 .919-.125 1.278-.373.354-.249.57-.515.653-.79h2.155c-.346 1.072-.871 1.838-1.589 2.299-.709.463-1.572.693-2.58.693-.702 0-1.334-.113-1.9-.337a4.033 4.033 0 0 1-1.439-.958 4.37 4.37 0 0 1-.905-1.485 5.433 5.433 0 0 1-.32-1.899c0-.666.111-1.289.329-1.864a4.376 4.376 0 0 1 .934-1.493c.405-.42.885-.751 1.444-.994a4.634 4.634 0 0 1 1.858-.362c.754 0 1.413.146 1.979.44a3.967 3.967 0 0 1 1.39 1.182c.363.493.622 1.058.783 1.691.161.632.217 1.292.171 1.983h-6.431c.001.704.238 1.371.606 1.729zm2.812-4.681c-.291-.322-.783-.496-1.385-.496-.391 0-.714.065-.974.199a1.97 1.97 0 0 0-.62.491 1.772 1.772 0 0 0-.328.628 2.82 2.82 0 0 0-.111.587h3.982c-.058-.624-.272-1.085-.564-1.409zm-3.918-4.663h4.989v1.215h-4.989z"
+              ></path>
             </g>
-            </svg>
-          </a>   
-    </div>
-  </footer>
+          </svg>
+        </a>
+        <a
+          href="https://www.instagram.com/zmamorije_by_iva_dukic/"
+          class="social instagram"
+          aria-label="Instagram"
+          title="Instagram"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path
+              d="M7 2C4.2 2 2 4.2 2 7v10c0 2.8 2.2 5 5 5h10c2.8 0 5-2.2 5-5V7c0-2.8-2.2-5-5-5H7zm0 2h10c1.7 0 3 1.3 3 3v10c0 1.7-1.3 3-3 3H7c-1.7 0-3-1.3-3-3V7c0-1.7 1.3-3 3-3zm5 2.9A5.1 5.1 0 0 0 6.9 12 5.1 5.1 0 0 0 12 17.1 5.1 5.1 0 0 0 17.1 12 5.1 5.1 0 0 0 12 6.9zm0 2A3.1 3.1 0 0 1 15.1 12 3.1 3.1 0 0 1 12 15.1 3.1 3.1 0 0 1 8.9 12 3.1 3.1 0 0 1 12 8.9zm4.6-.9a.9.9 0 1 0 0-1.8.9.9 0 0 0 0 1.8z"
+            />
+          </svg>
+        </a>
+        <a
+          href="https://www.facebook.com/zmamorije"
+          class="social facebook"
+          aria-label="Facebook"
+          title="Facebook"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <svg
+            fill="#000000"
+            version="1.1"
+            id="Capa_1"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            width="64px"
+            height="64px"
+            viewBox="0 0 97.75 97.75"
+            xml:space="preserve"
+            stroke="#000000"
+            stroke-width="0.0009775"
+          >
+            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g
+              id="SVGRepo_tracerCarrier"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            ></g>
+            <g id="SVGRepo_iconCarrier">
+              <g>
+                <path
+                  d="M48.875,0C21.882,0,0,21.882,0,48.875S21.882,97.75,48.875,97.75S97.75,75.868,97.75,48.875S75.868,0,48.875,0z M67.521,24.89l-6.76,0.003c-5.301,0-6.326,2.519-6.326,6.215v8.15h12.641L67.07,52.023H54.436v32.758H41.251V52.023H30.229V39.258 h11.022v-9.414c0-10.925,6.675-16.875,16.42-16.875l9.851,0.015V24.89L67.521,24.89z"
+                ></path>
+              </g>
+            </g>
+          </svg>
+        </a>
+      </div>
+    </footer>
 
-  <script src="script.js"></script>
-</body>
+    <button id="back-to-top" title="Vrati na vrh">↑ To top</button>
+
+    <script src="script.js"></script>
+  </body>
 </html>
