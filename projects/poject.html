@@ -5,21 +5,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Iva Dukic ~ illustrator</title>
 
-    <!-- ---------- Sprječavanje blica ---------- -->
-  <script>
-    (function() {
-      try {
-        const theme = localStorage.getItem('theme') === 'dark' ? 'dark' : 'light';
-        document.documentElement.className = theme;
-      } catch(e) {
-        document.documentElement.className = 'light';
-      }
-    })();
-  </script>
+    <script>
+      (function () {
+        // ---------- Dinamični <base> ----------
+        const base = window.location.hostname.includes("github.io")
+          ? "/git/" // <-- naziv tvog GitHub repozitorija
+          : "/";    // <-- root kad koristiš custom domenu
+        document.write(`<base href="${base}">`);
+
+        // ---------- Tema (bez blica) ----------
+        try {
+          const theme =
+            localStorage.getItem("theme") === "dark" ? "dark" : "light";
+          document.documentElement.className = theme;
+        } catch (e) {
+          document.documentElement.className = "light";
+        }
+      })();
+    </script>
   
   <link rel="stylesheet" href="../style.css">
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="/favicon.png" sizes="180x180">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="../favicon.png" sizes="180x180">
 </head>
 
 <body>
@@ -27,7 +34,7 @@
 
   <header class="header">
     <div class="logo">
-      <img src="logo.png" alt="Logo">
+      <img src="../logo.png" alt="Logo">
     </div>
 
     <!-- Hamburger toggle -->
@@ -38,9 +45,9 @@
 
     <nav class="navbar">
       <ul>
-        <li><a href="/index.html">Portfolio</a></li>
-        <li><a href="/about.html">About</a></li>
-        <li><a href="/contact.html">Contact</a></li>
+        <li><a href="../index.html">Portfolio</a></li>
+        <li><a href="../about.html">About</a></li>
+        <li><a href="../contact.html">Contact</a></li>
         <li class="theme-toggle">
           <div id="theme-toggle">
             <svg class="icon sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">

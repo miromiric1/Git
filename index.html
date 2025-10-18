@@ -4,11 +4,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Iva Dukic ~ illustrator</title>
-    <base href="/Git/">
-
-    <!-- ---------- Sprječavanje blica ---------- -->
+    
     <script>
       (function () {
+        // ---------- Dinamični <base> ----------
+        const base = window.location.hostname.includes("github.io")
+          ? "/git/" // <-- naziv tvog GitHub repozitorija
+          : "/";    // <-- root kad koristiš custom domenu
+        document.write(`<base href="${base}">`);
+
+        // ---------- Tema (bez blica) ----------
         try {
           const theme =
             localStorage.getItem("theme") === "dark" ? "dark" : "light";
@@ -20,8 +25,8 @@
     </script>
 
     <link rel="stylesheet" href="style.css" />
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-    <link rel="apple-touch-icon" href="/favicon.png" sizes="180x180">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="favicon.png" sizes="180x180">
   </head>
 
   <body>

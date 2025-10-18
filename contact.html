@@ -5,21 +5,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Iva Dukic ~ illustrator</title>
 
-    <!-- ---------- Sprječavanje blica ---------- -->
-  <script>
-    (function() {
-      try {
-        const theme = localStorage.getItem('theme') === 'dark' ? 'dark' : 'light';
-        document.documentElement.className = theme;
-      } catch(e) {
-        document.documentElement.className = 'light';
-      }
-    })();
-  </script>
+    <script>
+      (function () {
+        // ---------- Dinamični <base> ----------
+        const base = window.location.hostname.includes("github.io")
+          ? "/git/" // <-- naziv tvog GitHub repozitorija
+          : "/";    // <-- root kad koristiš custom domenu
+        document.write(`<base href="${base}">`);
+
+        // ---------- Tema (bez blica) ----------
+        try {
+          const theme =
+            localStorage.getItem("theme") === "dark" ? "dark" : "light";
+          document.documentElement.className = theme;
+        } catch (e) {
+          document.documentElement.className = "light";
+        }
+      })();
+    </script>
   
   <link rel="stylesheet" href="style.css">
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="/favicon.png" sizes="180x180">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="favicon.png" sizes="180x180">
 </head>
 
 <body>
@@ -78,29 +85,6 @@
         <h3>Email</h3>
         <p>zmamorije@gmail.com</p>
       </a>
-      
-      <a href="https://www.instagram.com/zmamorije_by_iva_dukic/" target="_blank" class="card instagram"> 
-        <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-          <path fill="currentColor" d="M7 2C4.24 2 2 4.24 2 7v10c0 2.76 2.24 
-          5 5 5h10c2.76 0 5-2.24 5-5V7c0-2.76-2.24-5-5-5H7zm10 
-          2c1.65 0 3 1.35 3 3v10c0 1.65-1.35 3-3 3H7c-1.65 
-          0-3-1.35-3-3V7c0-1.65 1.35-3 3-3h10zm-5 
-          3a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 
-          2a3 3 0 1 1 0 6 3 3 0 0 1 0-6zm4.8-2.9a1.1 
-          1.1 0 1 0 0 2.2 1.1 1.1 0 0 0 0-2.2z"/>
-        </svg>
-        <h3>Instagram</h3>
-        <p>@zmamorije_by_iva_dukic/</p>
-      </a>
-
-      <a href="https://www.facebook.com/zmamorije" target="_blank" class="card facebook">
-        <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-          <path d="M22 12a10 10 0 1 0-11.5 9.9v-7h-2v-3h2v-2.3c0-2 1.2-3.1 3-3.1.9 0 1.8.2 1.8.2v2h-1c-1 0-1.3.6-1.3 1.2V12h2.3l-.4 3h-1.9v7A10 10 0 0 0 22 12z" fill="currentColor"/>
-        </svg>
-        <h3>Facebook</h3>
-        <p>zmamorije</p>
-      </a>
-            
       <a href="https://www.behance.net/IvaDukic" target="_blank" class="card behance">
         <svg class="icon" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
           <g transform="translate(1.4 1.4) scale(2.81)">
@@ -150,7 +134,30 @@
         <h3>Behance</h3>
         <p>IvaDukic</p>
       </a>
+
+
       
+      <a href="https://www.instagram.com/zmamorije_by_iva_dukic/" target="_blank" class="card instagram"> 
+        <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path fill="currentColor" d="M7 2C4.24 2 2 4.24 2 7v10c0 2.76 2.24 
+          5 5 5h10c2.76 0 5-2.24 5-5V7c0-2.76-2.24-5-5-5H7zm10 
+          2c1.65 0 3 1.35 3 3v10c0 1.65-1.35 3-3 3H7c-1.65 
+          0-3-1.35-3-3V7c0-1.65 1.35-3 3-3h10zm-5 
+          3a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 
+          2a3 3 0 1 1 0 6 3 3 0 0 1 0-6zm4.8-2.9a1.1 
+          1.1 0 1 0 0 2.2 1.1 1.1 0 0 0 0-2.2z"/>
+        </svg>
+        <h3>Instagram</h3>
+        <p>@zmamorije_by_iva_dukic/</p>
+      </a>
+
+      <a href="https://www.facebook.com/zmamorije" target="_blank" class="card facebook">
+        <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M22 12a10 10 0 1 0-11.5 9.9v-7h-2v-3h2v-2.3c0-2 1.2-3.1 3-3.1.9 0 1.8.2 1.8.2v2h-1c-1 0-1.3.6-1.3 1.2V12h2.3l-.4 3h-1.9v7A10 10 0 0 0 22 12z" fill="currentColor"/>
+        </svg>
+        <h3>Facebook</h3>
+        <p>zmamorije</p>
+      </a>      
       </section>
   </main>
 
