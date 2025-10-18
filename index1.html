@@ -4,31 +4,36 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Iva Dukic ~ illustrator</title>
-    <base href="/Git">
-    <!-- ---------- Sprječavanje blica ---------- -->
-    <script>
-      (function () {
-        try {
-          const theme =
-            localStorage.getItem("theme") === "dark" ? "dark" : "light";
-          document.documentElement.className = theme;
-        } catch (e) {
-          document.documentElement.className = "light";
-        }
-      })();
-    </script>
+    
+  <script>
+    (function () {
+      // ---------- Dinamični <base> ----------
+      const base = document.createElement("base");
+      base.href = window.location.hostname.includes("github.io")
+        ? "/Git/" // <-- zamijeni "git" imenom tvog repozitorija
+        : "/";
+      document.head.prepend(base);
+
+      // ---------- Tema (bez blica) ----------
+      try {
+        const theme =
+          localStorage.getItem("theme") === "dark" ? "dark" : "light";
+        document.documentElement.className = theme;
+      } catch (e) {
+        document.documentElement.className = "light";
+      }
+    })();
+  </script>
 
     <link rel="stylesheet" href="style.css" />
-    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="shortcut icon" href="/favicon.ico" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="favicon.png" sizes="180x180">
   </head>
 
   <body>
     <header class="header">
       <div class="logo">
-       <img id="logo" src="logo-light.png" alt="Logo" />
+        <img src="logo.png" alt="Logo" />
       </div>
 
       <!-- Hamburger toggle -->
@@ -132,59 +137,59 @@
     </header>
 
     <main class="masonry">
-      <a href="/projects/doorstep.html"
+      <a href="projects/doorstep.html"
         ><img src="img/doorstep1 .jpg" alt="" loading="lazy"
       /></a>
-      <a href="/projects/doorstep.html"
+      <a href="projects/doorstep.html"
         ><img src="img/doorstep2.jpg" alt="" loading="lazy"
       /></a>
-      <a href="/projects/doorstep.html"
+      <a href="projects/doorstep.html"
         ><img src="img/doorstep3 .jpg" alt="" loading="lazy"
       /></a>
-      <a href="/projects/friends.html"
+      <a href="projects/friends.html"
         ><img src="img/friends1.jpg" alt="" loading="lazy"
       /></a>
-      <a href="/projects/friends.html"
+      <a href="projects/friends.html"
         ><img src="img/friends3.jpg" alt="" loading="lazy"
       /></a>
-      <a href="/projects/friends.html"
+      <a href="projects/friends.html"
         ><img src="img/friends4.jpg" alt="" loading="lazy"
       /></a>
-      <a href="/projects/friends.html"
+      <a href="projects/friends.html"
         ><img src="img/friends5.jpg" alt="" loading="lazy"
       /></a>
       <a href="#"><img src="img/ghost.jpg" alt="" loading="lazy" /></a>
       <a href="#"><img src="img/house.jpg" alt="" loading="lazy" /></a>
-      <a href="/projects/kitty.html"
+      <a href="projects/kitty.html"
         ><img src="img/kitty.jpg" alt="" loading="lazy"
       /></a>
       <a href="#"><img src="img/lion.jpg" alt="" loading="lazy" /></a>
       <a href="#"><img src="img/lisica.jpg" alt="" loading="lazy" /></a>
       <a href="#"><img src="img/mice.jpg" alt="" loading="lazy" /></a>
-      <a href="/projects/pumpkin.html"
+      <a href="projects/pumpkin.html"
         ><img src="img/pumpkin3.jpg" alt="" loading="lazy"
       /></a>
-      <a href="/projects/pumpkin.html"
+      <a href="projects/pumpkin.html"
         ><img src="img/pumpkin5.jpg" alt="" loading="lazy"
       /></a>
-      <a href="/projects/pumpkin.html"
+      <a href="projects/pumpkin.html"
         ><img src="img/pumpkin7.jpg" alt="" loading="lazy"
       /></a>
-      <a href="/projects/pumpkin.html"
+      <a href="projects/pumpkin.html"
         ><img src="img/pumpkin8.jpg" alt="" loading="lazy"
       /></a>
-      <a href="/img/school.jpg"
+      <a href="img/school.jpg"
         ><img src="img/school_thumb.jpg" alt="" loading="lazy"
       /></a>
       <a href="#"><img src="img/spot.jpg" alt="" loading="lazy" /></a>
       <a href="#"><img src="img/town.jpg" alt="" loading="lazy" /></a>
-      <a href="/projects/wicked.html"
+      <a href="projects/wicked.html"
         ><img src="img/wicked1.jpg" alt="" loading="lazy"
       /></a>
-      <a href="/projects/wicked.html"
+      <a href="projects/wicked.html"
         ><img src="img/wicked2.jpg" alt="" loading="lazy"
       /></a>
-      <a href="/projects/wicked.html"
+      <a href="projects/wicked.html"
         ><img src="img/wicked3.jpg" alt="" loading="lazy"
       /></a>
       <a href="#"><img src="img/winter.jpg" alt="" loading="lazy" /></a>
