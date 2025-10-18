@@ -1,41 +1,32 @@
 <!DOCTYPE html>
 <html lang="hr" class="light">
+
+    <script>
+    (function () {
+      const base = document.createElement("base");
+      base.href = window.location.hostname.includes("github.io") ? "/Git/" : "/";
+      document.head.prepend(base);
+    })();
+  </script>
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Iva Dukic ~ illustrator</title>
 
-  <!-- ---------- Dinamični <base> + Tema ---------- -->
   <script>
-    (function () {
-      // Postavi BASE prije svega ostalog
-      const base = document.createElement("base");
-      base.href = window.location.hostname.includes("github.io")
-        ? "/Git/" // <-- točno ime repozitorija
-        : "/";
-      document.head.appendChild(base);
-
-      // Tema bez blica
-      try {
-        const theme =
-          localStorage.getItem("theme") === "dark" ? "dark" : "light";
-        document.documentElement.className = theme;
-      } catch (e) {
-        document.documentElement.className = "light";
-      }
-    })();
+    try {
+      const theme = localStorage.getItem("theme") === "dark" ? "dark" : "light";
+      document.documentElement.className = theme;
+    } catch (e) {
+      document.documentElement.className = "light";
+    }
   </script>
 
-  <!-- ---------- CSS ---------- -->
   <link rel="stylesheet" href="style.css" />
-
-  <!-- ---------- JS ---------- -->
-  <script src="script.js" defer></script>
-
-  
-  <link rel="stylesheet" href="style.css">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="favicon.png" sizes="180x180">
+  <script src="script.js" defer></script>
 </head>
 
 <body>
