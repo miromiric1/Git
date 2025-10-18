@@ -5,16 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Iva Dukic ~ illustrator</title>
 
+  <!-- ---------- Dinamični <base> + Tema ---------- -->
   <script>
     (function () {
-      // ---------- Dinamični <base> ----------
+      // Postavi BASE prije svega ostalog
       const base = document.createElement("base");
       base.href = window.location.hostname.includes("github.io")
-        ? "/Git/" // <-- zamijeni "git" imenom tvog repozitorija
+        ? "/Git/" // <-- točno ime repozitorija
         : "/";
-      document.head.prepend(base);
+      document.head.appendChild(base);
 
-      // ---------- Tema (bez blica) ----------
+      // Tema bez blica
       try {
         const theme =
           localStorage.getItem("theme") === "dark" ? "dark" : "light";
@@ -24,6 +25,12 @@
       }
     })();
   </script>
+
+  <!-- ---------- CSS ---------- -->
+  <link rel="stylesheet" href="../style.css" />
+
+  <!-- ---------- JS ---------- -->
+  <script src="../script.js" defer></script>
 
   
   <link rel="stylesheet" href="../style.css">
@@ -104,6 +111,5 @@
     </div>
   </footer>
   
-  <script src="../script.js"></script>
 </body>
 </html>
