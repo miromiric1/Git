@@ -5,24 +5,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Iva Dukic ~ illustrator</title>
 
-    <script>
-      (function () {
-        // ---------- Dinamični <base> ----------
-        const base = window.location.hostname.includes("github.io")
-          ? "/git/" // <-- naziv tvog GitHub repozitorija
-          : "/";    // <-- root kad koristiš custom domenu
-        document.write(`<base href="${base}">`);
+  <script>
+    (function () {
+      // ---------- Dinamični <base> ----------
+      const base = document.createElement("base");
+      base.href = window.location.hostname.includes("github.io")
+        ? "/git/" // <-- zamijeni "git" imenom tvog repozitorija
+        : "/";
+      document.head.prepend(base);
 
-        // ---------- Tema (bez blica) ----------
-        try {
-          const theme =
-            localStorage.getItem("theme") === "dark" ? "dark" : "light";
-          document.documentElement.className = theme;
-        } catch (e) {
-          document.documentElement.className = "light";
-        }
-      })();
-    </script>
+      // ---------- Tema (bez blica) ----------
+      try {
+        const theme =
+          localStorage.getItem("theme") === "dark" ? "dark" : "light";
+        document.documentElement.className = theme;
+      } catch (e) {
+        document.documentElement.className = "light";
+      }
+    })();
+  </script>
+
   
   <link rel="stylesheet" href="../style.css">
   <link rel="icon" href="../favicon.svg" type="image/svg+xml">
